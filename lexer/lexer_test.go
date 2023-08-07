@@ -7,15 +7,15 @@ import (
 
 func TestNextToken(t *testing.T) {
 	input := `
-		const five = 5
-		const ten = 10
+    const five = 5
+    const ten = 10
 
-		fn add(x, y) {
-   		x + y
-		}
+    fn add(x, y) {
+       x + y
+    }
 
-		var result = add(five, ten)
- 	`
+    var result = add(five, ten)
+   `
 
 	tests := []struct {
 		expectedType    token.TokenType

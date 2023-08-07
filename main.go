@@ -6,16 +6,10 @@ import (
 	"fmt"
 	"jojo/repl"
 	"os"
-	"os/user"
 )
 
 func main() {
-	user, err := user.Current()
-	if err != nil {
-		panic(err)
-	}
-	fmt.Printf("Hello %s! This is the JOJO programming language!\n",
-		user.Username)
-	fmt.Printf("Feel free to type in commands\n")
+	fmt.Println("This is the JOJO (0.0.1) programming language!")
+	fmt.Println("Type \".help\" for more information.")
 	repl.Start(os.Stdin, os.Stdout)
 }

@@ -47,9 +47,9 @@ const (
 	RBRACE = "}"
 
 	// 关键字
-	FUNCTION = "FUNCTION"
 	VAR      = "VAR"
 	CONST    = "CONST"
+	FUNCTION = "FUNCTION"
 
 	TRUE   = "TRUE"
 	FALSE  = "FALSE"
@@ -66,9 +66,9 @@ const (
 // 关键字
 var keywords = map[string]TokenType{
 
-	"fn":    FUNCTION,
 	"var":   VAR,   // 变量
 	"const": CONST, // 常量
+	"fn":    FUNCTION,
 
 	"true":   TRUE,
 	"false":  FALSE,
@@ -76,9 +76,9 @@ var keywords = map[string]TokenType{
 	"else":   ELSE,
 	"return": RETURN,
 
-	"number": NUMBER,
-	"string": STRING,
-	"boolean": BOOLEAN
+	"number":  NUMBER,
+	"string":  STRING,
+	"boolean": BOOLEAN,
 }
 
 func LookupIdent(ident string) TokenType {
