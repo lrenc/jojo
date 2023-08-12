@@ -1,6 +1,8 @@
 package lexer
 
-import "jojo/token"
+import (
+	"jojo/token"
+)
 
 type Lexer struct {
 	input     []rune
@@ -101,6 +103,8 @@ func (l *Lexer) NextToken() token.Token {
 		t = newToken(token.COMMA, l.char)
 	case ';':
 		t = newToken(token.SEMICOLON, l.char)
+	case ':':
+		t = newToken(token.COLON, l.char)
 
 	case '(':
 		t = newToken(token.LPAREN, l.char)
@@ -126,7 +130,7 @@ func (l *Lexer) NextToken() token.Token {
 			t.Type = token.LookupIdent(t.Literal)
 			return t
 		} else if isDigit(l.char) {
-			t.Type = token.INT
+			t.Type = token.NUMBER
 			t.Literal = l.readNumber()
 			return t
 		} else {
@@ -163,6 +167,12 @@ func (l *Lexer) readNumber() string {
 	index := l.index
 	for isDigit(l.char) {
 		l.readChar()
+	}
+	if l.char == '.' {
+		l.readChar()
+		for isDigit(l.char) {
+			l.readChar()
+		}
 	}
 	return string(l.input[index:l.index])
 }

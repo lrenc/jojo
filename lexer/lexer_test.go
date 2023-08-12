@@ -7,7 +7,7 @@ import (
 
 func TestNextToken(t *testing.T) {
 	input := `
-    const five = 5
+    const five = 5.5
     const ten = 10
 
     fn add(x, y) {
@@ -24,12 +24,12 @@ func TestNextToken(t *testing.T) {
 		{token.CONST, "const"},
 		{token.IDENT, "five"},
 		{token.ASSIGN, "="},
-		{token.INT, "5"},
+		{token.NUMBER, "5.5"},
 		// {token.SEMICOLON, ";"},
 		{token.CONST, "const"},
 		{token.IDENT, "ten"},
 		{token.ASSIGN, "="},
-		{token.INT, "10"},
+		{token.NUMBER, "10"},
 		// {token.SEMICOLON, ";"},
 		// {token.VAR, "var"},
 		// {token.ASSIGN, "="},

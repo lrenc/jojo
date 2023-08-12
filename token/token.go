@@ -11,12 +11,6 @@ const (
 	ILLEGAL = "ILLEGAL" // 非法的
 	EOF     = "EOF"
 
-	// 标识符
-	IDENT = "IDENT"
-
-	// 字面量
-	INT = "INT" // int
-
 	// 运算符
 	ASSIGN   = "="
 	PLUS     = "+"
@@ -35,6 +29,7 @@ const (
 	// 分隔符
 	COMMA     = ","
 	SEMICOLON = ";"
+	COLON     = ":"
 
 	// 括号
 	LPAREN = "("
@@ -47,6 +42,10 @@ const (
 	RBRACE = "}"
 
 	// 关键字
+	// 标识符
+	IDENT = "IDENT"
+	// 字面量
+	// INT = "INT"
 	VAR      = "VAR"
 	CONST    = "CONST"
 	FUNCTION = "FUNCTION"
@@ -61,6 +60,10 @@ const (
 	NUMBER  = "NUMBER"
 	STRING  = "STRING"
 	BOOLEAN = "BOOLEAN"
+	NULL    = "NULL"
+
+	IMPORT = "IMPORT"
+	EXPORT = "EXPORT"
 )
 
 // 关键字
@@ -79,6 +82,10 @@ var keywords = map[string]TokenType{
 	"number":  NUMBER,
 	"string":  STRING,
 	"boolean": BOOLEAN,
+	"null":    NULL,
+
+	"import": IMPORT,
+	"export": EXPORT,
 }
 
 func LookupIdent(ident string) TokenType {
@@ -86,5 +93,6 @@ func LookupIdent(ident string) TokenType {
 		return t
 	}
 	// 不是关键字就是标识符
+	// TODO 需要考虑字符串等情况
 	return IDENT
 }
