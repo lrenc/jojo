@@ -6,14 +6,22 @@ type Node interface {
 	TokenLiteral() string
 }
 
+// 语句
 type Statement interface {
 	Node
 	statementNode()
 }
 
+// 表达式
 type Expression interface {
 	Node
 	expressionNode()
+}
+
+// 类型
+type Type interface {
+	Node
+	typeNode()
 }
 
 // 一系列语句组成程序
@@ -55,6 +63,7 @@ func (cs *ConstStatement) TokenLiteral() string {
 	return cs.Token.Literal // const 字符串
 }
 
+// 标识符
 type Identifier struct {
 	Token token.Token // token.IDENT词法单元
 	Value string
