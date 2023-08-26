@@ -7,6 +7,9 @@ import (
 	"jojo/token"
 )
 
+/**
+ * 解析器
+ */
 type Parser struct {
 	// 指向词法分析器实例的指针
 	l *lexer.Lexer
@@ -18,12 +21,9 @@ type Parser struct {
 }
 
 func New(l *lexer.Lexer) *Parser {
-	p := &Parser{
-		l:      l,
-		errors: []string{},
-	}
+	p := &Parser{l: l, errors: []string{}}
 
-	// 读取两个词法单元，以设置currToken和peekToken
+	// 读取两个词法单元，以设置 currToken 和 peekToken
 	p.nextToken()
 	p.nextToken()
 
@@ -57,7 +57,7 @@ func (p *Parser) parseStatement() ast.Statement {
 func (p *Parser) parseVarStatement() *ast.VarStatement {
 	stmt := &ast.VarStatement{Token: p.currToken}
 
-	if !p.expectPeek(token.IDENT) {
+	if !p.expectPeek(token.IDENTIFIER) {
 		return nil
 	}
 
