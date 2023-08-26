@@ -1,5 +1,9 @@
 # the JOJO programming language
 
+JOJO 是一个使用 Golang 实现的类 TypeScript 语言。
+
+JOJO 语法简洁，无隐式类型转换，没有 JavaScript 的种种历史包袱和迷惑行为。
+
 (const|var) identifier[: type] = value
 
 ```jojo
